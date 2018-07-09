@@ -7,5 +7,9 @@ lengthOfLongestSubstr('asdfjklaoek') -> 7 (asdfjkl)
 lengthOfLongestSubstr('zzz') -> 1 (z)
 lengthOfLongestSubstr('ddabcda') -> 4 (dabc)
 ```
+
+## Notes
+I was able to come up with an inefficient (with respect to time) brute force algorithim. After arriving at this solution, I read [this article][article] about the problem on leetCode.
 <!-- links -->
 [problem]:https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
+[article]:https://leetcode.com/articles/longest-substring-without-repeating-characters/
