@@ -25,4 +25,8 @@ describe('reverse()', () => {
   it('should return 21 when the input is 120', () => {
     expect(reverse(120)).to.equal(21);
   });
+
+  it('should return 0 when output overflows 32 bits', () => {
+    expect(reverse(1534236469)).to.equal(0);
+  });
 });
