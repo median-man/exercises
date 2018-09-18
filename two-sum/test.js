@@ -1,38 +1,20 @@
 const {expect} = require('chai');
-const {twoSum} = require('./two-sum.js');
+const {twoSum} = require('./index');
 
-describe('twoSum', () => {
-  it('should be a function', () => {
-    expect(twoSum).to.be.a('function');
-  });
+describe('twoSum()', () => {
+  const test = (expected, nums, target) => expect(twoSum(nums, target))
+    .to.eql(expected);
+  it('returns [0, 1] given [1, 1] and 2', () => test([0, 1], [1, 1], 2));
 
-  it('twoSum([0, 0], 0) should return [0, 1]', () => {
-    const expected = [0, 1];
-    const actual = twoSum([0, 0], 0);
-    expect(actual).to.deep.equal(expected);
-  });
+  it('returns [0, 2] given [1, 0, 2] and 3', () => test([0, 2], [1, 0, 2], 3));
 
-  it('twoSum([0, 2, 1], 1) should return [0, 2]', () => {
-    const expected = [0, 2];
-    const actual = twoSum([0, 2, 1], 1);
-    expect(actual).to.deep.equal(expected);
-  });
+  it(
+    'returns [0, 3] given [1, 0, 2, 3] and 4',
+    () => test([0, 3], [1, 0, 2, 3], 4)
+  );
 
-  it('twoSum([0, 2, 3, 1], 1) should return [0, 3]', () => {
-    const expected = [0, 3];
-    const actual = twoSum([0, 2, 3, 1], 1);
-    expect(actual).to.deep.equal(expected);
-  });
-
-  it('twoSum([0, 1, 2], 3) should return [1, 2]', () => {
-    const expected = [1, 2];
-    const actual = twoSum([0, 1, 2], 3);
-    expect(actual).to.deep.equal(expected);
-  });
-
-  it('twoSum([2, -3, 5], 2) should return [1, 2]', () => {
-    const expected = [1, 2];
-    const actual = twoSum([2, -3, 5], 2);
-    expect(actual).to.deep.equal(expected);
-  });
+  it(
+    'returns [2, 3] given [1, 1, 2, 3] and 5',
+    () => test([2, 3], [1, 1, 2, 3], 5)
+  );
 });

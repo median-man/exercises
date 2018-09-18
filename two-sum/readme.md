@@ -1,39 +1,67 @@
 # Two Sum
-The Two Sum problem from https://leetcode.com/problems/two-sum/description/.
+Write a function named *twoSum*, which, given an array of integers and a target, returns the indices for the two numbers for which their sum is equal to the target. Assume that each input has exactly one solution and the same element may now be used twice. The [original problem][problem] may be found at [leetCode][lc].
 
-Given an array of integers, return indices of the two numbers such that they add up to a
-specific target.
-
-You may assume that each input would have exactly one solution, and you may not use the same
-element twice.
-
+**Examples:**
 ```
-Given nums = [3, 9, 6, 5], target = 9,
-
-Because nums[0] + nums[2] = 3 + 6 = 9,
-return [0, 2].
+twoSum([2, 5, 8], 10) --> [0, 2] // 2 + 8 = 10
+twoSum([8, 2, 5, 12], 14) --> [1, 3] // 2 + 12 = 14
 ```
 
-## What I learned
-The Two Sum problem is fairly easy to solve with a brute force aproach (O(n2)). The performance of
-this function is improved to nearly O(1) with the use of a hash. A complement is calculated and
-added to the hash mapped to the index of the number it complements. The hash solution saves time at
-the expense of space. The worst case for space is a hash table with n - 1 values where n is the
-length of the array of numbers input.
+## Steps
+### Map Solution
+A linear time complexity in relation to the array of numbers is achieved by using an object (hash table) where each key is a number from `nums` and each value is the corresponding index.
 
-**Example:**
 ```
+time complexity: O(n)
+
 given:
-target = 5
-nums = [1, 4, 9]
+  nums: array
+  target: number
 
-hash:
-{
-  '4': 0, // nums[0] + 4 = 5
-  '1': 1, // nums[1] + 1 = 5
-  '-4': 2, // nums[2] + -4 = 5
-}
+let map = {}
+let result = []
+
+FOR (i = 0; i < nums.length; nums += 1)
+  let num = nums[i]
+  let compliment = target - num
+  IF map has compliment
+    result = [map[compliment], i]
+  END IF
+  map[num] = i;
+END FOR
+
+return result;
 ```
 
-I also learned (again) that complement is not spelled "compliment". When the target is 5 and n = 1,
-4 isn't impressed.
+### Brute force solution
+```
+time complexity: O(n^2)
+
+given:
+  nums: array
+  target: num
+
+let a = 0, maxa = nums.length - 1, result = []
+while (a < maxa)
+  let b = 1
+
+  while (b < nums.length)
+    if (nums[a] + nums[b] === target)
+      result = [a, b]
+    end if
+    b += 1
+  end while
+
+  a += 1
+end while
+
+return result
+```
+
+## Notes
+When I first started to pseudo code the steps, I was taking the brute force approach. Thankfully, something didn't feel right. Then, recall struck! I had once learned to use a hash map to structure the data for this problem. Using a map allows for a solution with only a single loop over the input array in the worst case.
+
+<!-- links -->
+[lc]:https://leetcode.com/
+[problem]:https://leetcode.com/problems/two-sum/description/
+
