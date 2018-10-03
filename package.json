@@ -16,5 +16,21 @@
   },
   "author": "John Desrosiers",
   "license": "UNLICENSED",
-  "homepage": "https://github.com/median-man/exercises#readme"
+  "homepage": "https://github.com/median-man/exercises#readme",
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "google"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 6
+    },
+    "env": {
+      "node": true,
+      "mocha": true
+    },
+    "rules": {
+      "require-jsdoc": "off"
+    }
+  }
 }
