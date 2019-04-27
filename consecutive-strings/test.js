@@ -10,6 +10,10 @@ describe('consecutive strings', () => {
     it(message, () => longestSequence(strings, n).should.equal(expected));
   };
 
+  describe('degenerate tests', () => {
+    test(['a', 'b', 'c'], -1, '');
+  });
+
   describe('n = 1', () => {
     const n = 1;
     test(['a'], n, 'a');

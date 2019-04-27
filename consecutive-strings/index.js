@@ -1,4 +1,7 @@
-exports.longestSequence = (strings, n) => { 
+exports.longestSequence = (strings, n) => {
+  if (n < 1) {
+    return '';
+  }
   const lastSequenceIndex = strings.length - n;
   let result = '';
   for (let i = 0; i <= lastSequenceIndex; i += 1) {
