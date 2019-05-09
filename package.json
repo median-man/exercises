@@ -2,6 +2,9 @@
   "name": "coding-exercises",
   "version": "1.0.0",
   "description": "Collection of practice exercises.",
+  "scripts": {
+    "generate": "node tools/generate-exercise"
+  },
   "dependencies": {
     "chai": "^4.1.2"
   },
