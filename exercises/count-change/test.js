@@ -18,5 +18,6 @@ describe('countChange', () => {
   describe('when coins contains 1', () => {
     const coins = () => [1];
     it('should return 1', () => countChange(1, coins()).should.equal(1));
+    it('should return 0', () => countChange(0, coins()).should.equal(0));
   });
 });
