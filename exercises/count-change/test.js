@@ -9,9 +9,7 @@ describe('countChange', () => {
     });
 
     it('should return 0 given no coins', () => {
-      const coins = [];
-      const amount = 1;
-      countChange(amount, coins).should.equal(0);
+      countChange(1, []).should.equal(0);
     });
 
     it('should return 1 when coins is [1]', () => {
@@ -35,7 +33,15 @@ describe('countChange', () => {
     it('should return 2 given amount = 2', () =>
       countChange(2, coins()).should.equal(2));
 
-    it.skip('should return 2 given amount = 3', () =>
+    it('should return 2 given amount = 3', () =>
       countChange(3, coins()).should.equal(2));
+  });
+
+  describe('acceptance tests', () => {
+    it('countChange(10, [5,2,3]) returns 4', () =>
+      countChange(10, [5, 2, 3]).should.equal(4));
+
+    it('countChange(11, [5, 7]) returns 0', () =>
+      countChange(11, [5, 7]).should.equal(0));
   });
 });
