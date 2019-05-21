@@ -34,5 +34,8 @@ describe('countChange', () => {
 
     it('should return 2 given amount = 2', () =>
       countChange(2, coins()).should.equal(2));
+
+    it.skip('should return 2 given amount = 3', () =>
+      countChange(3, coins()).should.equal(2));
   });
 });
