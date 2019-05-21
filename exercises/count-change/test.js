@@ -13,11 +13,16 @@ describe('countChange', () => {
       const amount = 1;
       countChange(amount, coins).should.equal(0);
     });
+
+    it('should return 1 when coins is [1]', () => {
+      countChange(1, [1]).should.equal(1);
+    });
   });
 
-  describe('when coins contains 1', () => {
-    const coins = () => [1];
-    it('should return 1', () => countChange(1, coins()).should.equal(1));
-    it('should return 0', () => countChange(0, coins()).should.equal(0));
+  describe('when coins contains [2]', () => {
+    const coins = () => [2];
+
+    it('should return 0 given amount = 3', () =>
+      countChange(3, coins()).should.equal(0));
   });
 });
