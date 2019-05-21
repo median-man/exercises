@@ -28,4 +28,11 @@ describe('countChange', () => {
     it('should return 1 given amount = 4', () =>
       countChange(4, coins()).should.equal(1));
   });
+
+  describe('when coins contains [1, 2]', () => {
+    const coins = () => [1, 2];
+
+    it('should return 2 given amount = 2', () =>
+      countChange(2, coins()).should.equal(2));
+  });
 });
